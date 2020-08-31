@@ -11,8 +11,8 @@ This class is a state machine that transitions between states based on pair
 
 import CoreGraphics
 
-class HandGestureProcessor {
-    enum State {
+@objc public class HandGestureProcessor : NSObject {
+    public enum State {
         case possiblePinch
         case pinched
         case possibleApart
@@ -20,35 +20,39 @@ class HandGestureProcessor {
         case unknown
     }
     
-    typealias PointsPair = (thumbTip: CGPoint, indexTip: CGPoint)
+    //public typealias PointsPair = (thumbTip: CGPoint, indexTip: CGPoint)
     
     private var state = State.unknown {
         didSet {
             didChangeStateClosure?(state)
         }
     }
+    
+    @objc public static let shared = HandGestureProcessor()
+    
     private var pinchEvidenceCounter = 0
     private var apartEvidenceCounter = 0
     private let pinchMaxDistance: CGFloat
     private let evidenceCounterStateTrigger: Int
     
-    var didChangeStateClosure: ((State) -> Void)?
-    private (set) var lastProcessedPointsPair = PointsPair(.zero, .zero)
+    public var didChangeStateClosure: ((State) -> Void)?
+    public private (set) var lastProcessedPointsPair = PointsPair.zero
     
-    init(pinchMaxDistance: CGFloat = 40, evidenceCounterStateTrigger: Int = 3) {
+    public init(pinchMaxDistance: CGFloat = 40, evidenceCounterStateTrigger: Int = 3) {
         self.pinchMaxDistance = pinchMaxDistance
         self.evidenceCounterStateTrigger = evidenceCounterStateTrigger
     }
     
-    func reset() {
+    @objc public func reset() {
         state = .unknown
         pinchEvidenceCounter = 0
         apartEvidenceCounter = 0
     }
     
-    func processPointsPair(_ pointsPair: PointsPair) {
-        lastProcessedPointsPair = pointsPair
-        let distance = pointsPair.indexTip.distance(from: pointsPair.thumbTip)
+    //@objc public func processPointsPair(_ pointsPair: PointsPair) {
+    @objc public func processPointsPair(thumbTip: CGPoint, indexTip: CGPoint) {
+        lastProcessedPointsPair = PointsPair(thumbTip: thumbTip, indexTip: indexTip)
+        let distance = indexTip.distance(from: thumbTip)
         if distance < pinchMaxDistance {
             // Keep accumulating evidence for pinch state.
             pinchEvidenceCounter += 1
@@ -69,11 +73,11 @@ class HandGestureProcessor {
 
 extension CGPoint {
 
-    static func midPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
+    public static func midPoint(p1: CGPoint, p2: CGPoint) -> CGPoint {
         return CGPoint(x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2)
     }
     
-    func distance(from point: CGPoint) -> CGFloat {
+    public func distance(from point: CGPoint) -> CGFloat {
         return hypot(point.x - x, point.y - y)
     }
 }

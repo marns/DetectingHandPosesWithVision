@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B6195B724FC6E3A00BCCE86 /* HandPoseProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6195B624FC6E3A00BCCE86 /* HandPoseProcessor.swift */; };
+		5B6195BB24FC779E00BCCE86 /* IUnityInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6195BA24FC779E00BCCE86 /* IUnityInterface.h */; };
+		5B6195BD24FCA7EE00BCCE86 /* HandGestureProcessorObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B6195BC24FCA68600BCCE86 /* HandGestureProcessorObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BCD5AE424FC447E004A8015 /* HandPoseBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BCD5AE224FC447E004A8015 /* HandPoseBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BCD5AE724FC447E004A8015 /* HandPoseBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCD5AE024FC447E004A8015 /* HandPoseBridge.framework */; };
+		5BCD5AE824FC447E004A8015 /* HandPoseBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCD5AE024FC447E004A8015 /* HandPoseBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5BCD5AED24FC4494004A8015 /* HandGestureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475655B248AEBD800F111B8 /* HandGestureProcessor.swift */; };
+		5BCD5AEF24FC4765004A8015 /* HandGestureProcessorObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD5AEE24FC4765004A8015 /* HandGestureProcessorObjC.m */; };
 		C475655D248AEBD900F111B8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475655A248AEBD800F111B8 /* CameraView.swift */; };
-		C475655E248AEBD900F111B8 /* HandGestureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475655B248AEBD800F111B8 /* HandGestureProcessor.swift */; };
 		C475655F248AEBD900F111B8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475655C248AEBD900F111B8 /* CameraViewController.swift */; };
 		C4EB82EB248AEB7B00CD7D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EB82EA248AEB7B00CD7D41 /* AppDelegate.swift */; };
 		C4EB82ED248AEB7B00CD7D41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EB82EC248AEB7B00CD7D41 /* SceneDelegate.swift */; };
@@ -17,10 +24,42 @@
 		C4EB82F7248AEB7B00CD7D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4EB82F5248AEB7B00CD7D41 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5BCD5AE524FC447E004A8015 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4EB82DF248AEB7B00CD7D41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BCD5ADF24FC447E004A8015;
+			remoteInfo = HandPoseBridge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5BCD5AEC24FC447E004A8015 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5BCD5AE824FC447E004A8015 /* HandPoseBridge.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		131D672E55F74A60D83C1534 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		26547FACF06954AF783E23D9 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
-		72CC35B8245EF9E709BBCA67 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		26547FACF06954AF783E23D9 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5B6195B624FC6E3A00BCCE86 /* HandPoseProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoseProcessor.swift; sourceTree = "<group>"; };
+		5B6195B824FC76D000BCCE86 /* UnityXRNativePtrs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityXRNativePtrs.h; sourceTree = "<group>"; };
+		5B6195BA24FC779E00BCCE86 /* IUnityInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnityInterface.h; sourceTree = "<group>"; };
+		5B6195BC24FCA68600BCCE86 /* HandGestureProcessorObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandGestureProcessorObjC.h; sourceTree = "<group>"; };
+		5BCD5AE024FC447E004A8015 /* HandPoseBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HandPoseBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BCD5AE224FC447E004A8015 /* HandPoseBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandPoseBridge.h; sourceTree = "<group>"; };
+		5BCD5AE324FC447E004A8015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BCD5AEE24FC4765004A8015 /* HandGestureProcessorObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandGestureProcessorObjC.m; sourceTree = "<group>"; };
+		72CC35B8245EF9E709BBCA67 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		C475655A248AEBD800F111B8 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C475655B248AEBD800F111B8 /* HandGestureProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandGestureProcessor.swift; sourceTree = "<group>"; };
 		C475655C248AEBD900F111B8 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -35,10 +74,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5BCD5ADD24FC447E004A8015 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4EB82E4248AEB7B00CD7D41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCD5AE724FC447E004A8015 /* HandPoseBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,7 +97,6 @@
 			children = (
 				26547FACF06954AF783E23D9 /* LICENSE.txt */,
 			);
-			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
@@ -62,11 +108,27 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		5BCD5AE124FC447E004A8015 /* HandPoseBridge */ = {
+			isa = PBXGroup;
+			children = (
+				5B6195BA24FC779E00BCCE86 /* IUnityInterface.h */,
+				C475655B248AEBD800F111B8 /* HandGestureProcessor.swift */,
+				5BCD5AE224FC447E004A8015 /* HandPoseBridge.h */,
+				5BCD5AE324FC447E004A8015 /* Info.plist */,
+				5BCD5AEE24FC4765004A8015 /* HandGestureProcessorObjC.m */,
+				5B6195B624FC6E3A00BCCE86 /* HandPoseProcessor.swift */,
+				5B6195B824FC76D000BCCE86 /* UnityXRNativePtrs.h */,
+				5B6195BC24FCA68600BCCE86 /* HandGestureProcessorObjC.h */,
+			);
+			path = HandPoseBridge;
+			sourceTree = "<group>";
+		};
 		C4EB82DE248AEB7B00CD7D41 = {
 			isa = PBXGroup;
 			children = (
 				131D672E55F74A60D83C1534 /* README.md */,
 				C4EB82E9248AEB7B00CD7D41 /* HandPose */,
+				5BCD5AE124FC447E004A8015 /* HandPoseBridge */,
 				C4EB82E8248AEB7B00CD7D41 /* Products */,
 				3DFF40B4B70C4CD3181B64B7 /* Configuration */,
 				32A6CCA239152BDC17147684 /* LICENSE */,
@@ -77,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				C4EB82E7248AEB7B00CD7D41 /* HandPose.app */,
+				5BCD5AE024FC447E004A8015 /* HandPoseBridge.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,7 +149,6 @@
 			children = (
 				C475655A248AEBD800F111B8 /* CameraView.swift */,
 				C475655C248AEBD900F111B8 /* CameraViewController.swift */,
-				C475655B248AEBD800F111B8 /* HandGestureProcessor.swift */,
 				C4EB82F5248AEB7B00CD7D41 /* LaunchScreen.storyboard */,
 				C4EB82F0248AEB7B00CD7D41 /* Main.storyboard */,
 				C4EB82EA248AEB7B00CD7D41 /* AppDelegate.swift */,
@@ -100,7 +162,38 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5BCD5ADB24FC447E004A8015 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6195BD24FCA7EE00BCCE86 /* HandGestureProcessorObjC.h in Headers */,
+				5B6195BB24FC779E00BCCE86 /* IUnityInterface.h in Headers */,
+				5BCD5AE424FC447E004A8015 /* HandPoseBridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		5BCD5ADF24FC447E004A8015 /* HandPoseBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BCD5AE924FC447E004A8015 /* Build configuration list for PBXNativeTarget "HandPoseBridge" */;
+			buildPhases = (
+				5BCD5ADB24FC447E004A8015 /* Headers */,
+				5BCD5ADC24FC447E004A8015 /* Sources */,
+				5BCD5ADD24FC447E004A8015 /* Frameworks */,
+				5BCD5ADE24FC447E004A8015 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HandPoseBridge;
+			productName = HandPoseBridge;
+			productReference = 5BCD5AE024FC447E004A8015 /* HandPoseBridge.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		C4EB82E6248AEB7B00CD7D41 /* HandPose */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4EB82FB248AEB7B00CD7D41 /* Build configuration list for PBXNativeTarget "HandPose" */;
@@ -108,10 +201,12 @@
 				C4EB82E3248AEB7B00CD7D41 /* Sources */,
 				C4EB82E4248AEB7B00CD7D41 /* Frameworks */,
 				C4EB82E5248AEB7B00CD7D41 /* Resources */,
+				5BCD5AEC24FC447E004A8015 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5BCD5AE624FC447E004A8015 /* PBXTargetDependency */,
 			);
 			name = HandPose;
 			productName = HandPose;
@@ -124,10 +219,15 @@
 		C4EB82DF248AEB7B00CD7D41 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Latest;
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
+					5BCD5ADF24FC447E004A8015 = {
+						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
+					};
 					C4EB82E6248AEB7B00CD7D41 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -147,11 +247,19 @@
 			projectRoot = "";
 			targets = (
 				C4EB82E6248AEB7B00CD7D41 /* HandPose */,
+				5BCD5ADF24FC447E004A8015 /* HandPoseBridge */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5BCD5ADE24FC447E004A8015 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4EB82E5248AEB7B00CD7D41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,11 +273,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5BCD5ADC24FC447E004A8015 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6195B724FC6E3A00BCCE86 /* HandPoseProcessor.swift in Sources */,
+				5BCD5AED24FC4494004A8015 /* HandGestureProcessor.swift in Sources */,
+				5BCD5AEF24FC4765004A8015 /* HandGestureProcessorObjC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C4EB82E3248AEB7B00CD7D41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C475655E248AEBD900F111B8 /* HandGestureProcessor.swift in Sources */,
 				C4EB82EB248AEB7B00CD7D41 /* AppDelegate.swift in Sources */,
 				C4EB82ED248AEB7B00CD7D41 /* SceneDelegate.swift in Sources */,
 				C475655D248AEBD900F111B8 /* CameraView.swift in Sources */,
@@ -178,6 +295,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BCD5AE624FC447E004A8015 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BCD5ADF24FC447E004A8015 /* HandPoseBridge */;
+			targetProxy = 5BCD5AE524FC447E004A8015 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C4EB82F0248AEB7B00CD7D41 /* Main.storyboard */ = {
@@ -199,6 +324,63 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5BCD5AEA24FC447E004A8015 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = LS947UQL7X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HandPoseBridge/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.HandPoseBridge;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BCD5AEB24FC447E004A8015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = LS947UQL7X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HandPoseBridge/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martin.HandPoseBridge;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		C4EB82F9248AEB7B00CD7D41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72CC35B8245EF9E709BBCA67 /* SampleCode.xcconfig */;
@@ -321,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72CC35B8245EF9E709BBCA67 /* SampleCode.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HandPose/HandPose.entitlements;
@@ -344,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72CC35B8245EF9E709BBCA67 /* SampleCode.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HandPose/HandPose.entitlements;
@@ -366,6 +550,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5BCD5AE924FC447E004A8015 /* Build configuration list for PBXNativeTarget "HandPoseBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BCD5AEA24FC447E004A8015 /* Debug */,
+				5BCD5AEB24FC447E004A8015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4EB82E2248AEB7B00CD7D41 /* Build configuration list for PBXProject "HandPose" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,6 +8,7 @@ The app's main view controller object.
 import UIKit
 import AVFoundation
 import Vision
+import HandPoseBridge
 
 class CameraViewController: UIViewController {
 
@@ -19,12 +20,13 @@ class CameraViewController: UIViewController {
     
     private let drawOverlay = CAShapeLayer()
     private let drawPath = UIBezierPath()
-    private var evidenceBuffer = [HandGestureProcessor.PointsPair]()
+    private var evidenceBuffer = [PointsPair]()
     private var lastDrawPoint: CGPoint?
     private var isFirstSegment = true
     private var lastObservationTimestamp = Date()
     
     private var gestureProcessor = HandGestureProcessor()
+    private var handPoseProcessor = HandPoseProcessor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,24 +103,28 @@ class CameraViewController: UIViewController {
         cameraFeedSession = session
 }
     
-    func processPoints(thumbTip: CGPoint?, indexTip: CGPoint?) {
+    func processPoints(thumbTip: PointC, indexTip: PointC) {
         // Check that we have both points.
-        guard let thumbPoint = thumbTip, let indexPoint = indexTip else {
+        //guard let thumbPoint = thumbTip, let indexPoint = indexTip else {
             // If there were no observations for more than 2 seconds reset gesture processor.
-            if Date().timeIntervalSince(lastObservationTimestamp) > 2 {
-                gestureProcessor.reset()
-            }
-            cameraView.showPoints([], color: .clear)
-            return
-        }
+            //if Date().timeIntervalSince(lastObservationTimestamp) > 2 {
+            //    gestureProcessor.reset()
+            //}
+            //cameraView.showPoints([], color: .clear)
+            //return
+        //}
         
         // Convert points from AVFoundation coordinates to UIKit coordinates.
         let previewLayer = cameraView.previewLayer
+        
+        let thumbPoint = CGPoint(x: thumbTip.x, y: thumbTip.y)
+        let indexPoint = CGPoint(x: indexTip.x, y: indexTip.y)
+        
         let thumbPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: thumbPoint)
         let indexPointConverted = previewLayer.layerPointConverted(fromCaptureDevicePoint: indexPoint)
         
         // Process new points
-        gestureProcessor.processPointsPair((thumbPointConverted, indexPointConverted))
+        gestureProcessor.processPointsPair(thumbTip: thumbPointConverted, indexTip: indexPointConverted)
     }
     
     private func handleGestureStateChange(state: HandGestureProcessor.State) {
@@ -151,9 +157,9 @@ class CameraViewController: UIViewController {
         cameraView.showPoints([pointsPair.thumbTip, pointsPair.indexTip], color: tipsColor)
     }
     
-    private func updatePath(with points: HandGestureProcessor.PointsPair, isLastPointsPair: Bool) {
+    private func updatePath(with points: PointsPair, isLastPointsPair: Bool) {
         // Get the mid point between the tips.
-        let (thumbTip, indexTip) = points
+        let (thumbTip, indexTip) = (points.thumbTip, points.indexTip)
         let drawPoint = CGPoint.midPoint(p1: thumbTip, p2: indexTip)
 
         if isLastPointsPair {
@@ -200,6 +206,20 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        guard let imageBuffer = sampleBuffer.imageBuffer else {
+            return
+        }
+        let pair = handPoseProcessor.detect(sampleBuffer: imageBuffer)
+        if (IsEmptyPoint(pair.index) || IsEmptyPoint(pair.thumb)) {
+            return
+        }
+        
+        DispatchQueue.main.sync {
+            self.processPoints(thumbTip: pair.thumb, indexTip: pair.index)
+        }
+        
+        /*
         var thumbTip: CGPoint?
         var indexTip: CGPoint?
         
@@ -238,7 +258,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             DispatchQueue.main.async {
                 error.displayInViewController(self)
             }
-        }
+        }*/
     }
 }
 
